@@ -10,6 +10,16 @@ libraries in the Ruby world.
 * Several gems (see rdbb.gemset)
 * PostgreSQL
 
+### Optionals
+
+If you are using [RVM](http://rvm.beginrescueend.com/) (highly recommended),
+then you can install all needed gems into a distinct gemset via commands such
+as:
+
+    rvm gemset create rdbb
+    rvm use 1.9.1@rdbb
+    rvm gemset import rdbb.gemset
+
 ## Execution
 
     ruby compare.rb --help
