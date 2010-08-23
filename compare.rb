@@ -29,6 +29,8 @@ module RDBB
           exit 1
         when '-i', '--iterations-inner'
           @inner_iterations = argv.shift.to_i
+        when '--iterations-outer'
+          @outer_iterations = argv.shift.to_i
         else
           if @runner1.nil?
             @runner1 = RDBB::Runner.const_get( arg.to_sym ).new
@@ -64,7 +66,7 @@ module RDBB
         end
 
         result = Benchmark.compare_realtime(
-          :iterations => 10,
+          :iterations => @outer_iterations || 10,
           :inner_iterations => @inner_iterations || 1000,
           :verbose => true
         ) { |iteration|
