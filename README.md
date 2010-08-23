@@ -7,7 +7,7 @@ libraries in the Ruby world.
 
 * Ruby 1.9+
 * [R](http://www.r-project.org/)
-* Several gems (see rdbb.gemset)
+* Several gems (see rdbb.gems)
 * PostgreSQL
 
 ### Optionals
@@ -18,7 +18,7 @@ as:
 
     rvm gemset create rdbb
     rvm use 1.9.1@rdbb
-    rvm gemset import rdbb.gemset
+    rvm gemset import rdbb.gems
 
 ## Execution
 
