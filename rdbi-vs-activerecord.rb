@@ -41,6 +41,22 @@ class RubyDatabaseBenchmark
 
     Benchmark.report_on result
 
+    rec_id = 999999
+    @dbh.execute( "INSERT INTO records ( id, s ) VALUES ( ?, ? )", rec_id, 'a string' )
+    st = @dbh.prepare( "SELECT * FROM records WHERE id = ?" )
+
+    result = Benchmark.compare_realtime(
+      :iterations => 10,
+      :inner_iterations => 2000,
+      :verbose => true
+    ) { |iteration|
+      Record.find( rec_id )
+    }.with { |iteration|
+      st.execute( rec_id )
+    }
+
+    Benchmark.report_on result
+
   end
 end
 
