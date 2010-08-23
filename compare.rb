@@ -14,7 +14,7 @@ module RDBB
     DB_DATABASE = 'rdbb'
 
     def print_usage
-      puts "ruby #{$0} <DB lib 1> <DB lib 2> <benchable> [benchable...]"
+      puts "ruby #{$0} [-i <inner iterations>] <DB lib 1> <DB lib 2> <benchable> [benchable...]"
     end
 
     def initialize
@@ -27,6 +27,8 @@ module RDBB
         when '--help'
           print_usage
           exit 1
+        when '-i', '--iterations-inner'
+          @inner_iterations = argv.shift.to_i
         else
           if @runner1.nil?
             @runner1 = RDBB::Runner.const_get( arg.to_sym ).new
@@ -63,7 +65,7 @@ module RDBB
 
         result = Benchmark.compare_realtime(
           :iterations => 10,
-          :inner_iterations => 2000,
+          :inner_iterations => @inner_iterations || 1000,
           :verbose => true
         ) { |iteration|
           @runner1.send method
