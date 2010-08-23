@@ -6,6 +6,7 @@ libraries in the Ruby world.
 ## Requirements
 
 * Ruby 1.9+
+* Rubygems 1.3.7+
 * [R](http://www.r-project.org/)
 * Several gems (see rdbb.gems)
 * PostgreSQL
