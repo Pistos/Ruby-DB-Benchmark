@@ -47,7 +47,7 @@ as:
     The difference (-13.5%) IS statistically significant.
 
 This means that the results permit us to conclude that the second DB library
-performs the benchable function 13.5% better than the first DB library.
+performs the benchable function 13.5% faster than the first DB library.
 
 ### Example 2
 
@@ -60,5 +60,5 @@ performs the benchable function 13.5% better than the first DB library.
     The difference (-17.6%) IS NOT statistically significant.
 
 This means that the results do not permit us to conclude anything; neither
-that the first DB library performs better than the second, nor that the second
-performs better than the first, nor even that they perform equivalently.
+that the first DB library performs faster than the second, nor that the second
+performs faster than the first, nor even that they perform equivalently.
