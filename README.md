@@ -29,6 +29,17 @@ as:
 
     ruby compare.rb ActiveRecord RDBI insert_simple
 
+### DB Libraries
+
+* ActiveRecord
+* RDBI
+
+Coming soon:
+
+* Sequel
+* DataMapper / DataObjects
+* Ruby DBI
+
 ### Benchables
 
 * insert_simple
