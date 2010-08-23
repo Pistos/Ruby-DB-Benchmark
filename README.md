@@ -21,6 +21,9 @@ as:
     rvm use 1.9.1@rdbb
     rvm gemset import rdbb.gems
 
+You may need to adjust the rsruby line with a --with-R-dir option that is more
+appropriate for your system.
+
 ## Execution
 
     ruby compare.rb --help
