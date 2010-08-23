@@ -9,10 +9,12 @@ module RDBB; module Runner
     end
 
     def prep_select_simple
+      @id = Time.now.to_i
+      @dbh.execute( "INSERT INTO records ( id, s ) VALUES ( ?, ? )", @id, 'a string' )
       @st = @dbh.prepare( "SELECT * FROM records WHERE id = ?" )
     end
     def select_simple
-      @st.execute( 1 ).fetch
+      @st.execute( @id ).fetch
     end
   end
 end; end

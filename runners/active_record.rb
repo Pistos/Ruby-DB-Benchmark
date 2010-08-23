@@ -17,6 +17,10 @@ module RDBB; module Runner
       record.save
     end
 
+    def prep_select_simple
+      record = Record.new( id: 1, s: 'a string' )
+      record.save
+    end
     def select_simple
       Record.find( 1 )
     end
