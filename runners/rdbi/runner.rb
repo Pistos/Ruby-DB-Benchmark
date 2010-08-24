@@ -1,7 +1,16 @@
+require 'rdbi'
+require 'rdbi/driver/postgresql'
+
 module RDBB; module Runner
   class RDBI
     def initialize
-      @dbh = ::RDBI.connect( :PostgreSQL, database: 'rdbb', username: 'rdbb', password: 'rdbb' )
+      db_user = 'rdbb'
+      db_database = 'rdbb_rdbi'
+
+      dir = File.dirname( __FILE__ )
+      `cat #{dir}/schema.sql | psql -U #{db_user} #{db_database}`
+
+      @dbh = ::RDBI.connect( :PostgreSQL, database: db_database, username: db_user, password: 'rdbb' )
     end
 
     def insert_simple

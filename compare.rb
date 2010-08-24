@@ -1,17 +1,11 @@
 require 'better-benchmark'
-require 'active_record'
-require 'rdbi'
-require 'rdbi/driver/postgresql'
 
-require_relative 'runners/rdbi'
-require_relative 'runners/active_record'
+require_relative 'runners/rdbi/runner'
+require_relative 'runners/active_record/runner'
 
 module RDBB
 
   class RubyDatabaseBenchmark
-    DB_USER = 'rdbb'
-    DB_PASSWORD = 'rdbb'
-    DB_DATABASE = 'rdbb'
 
     def print_usage
       puts "ruby #{$0} [-i <inner iterations>] <DB lib 1> <DB lib 2> <benchable> [benchable...]"
@@ -46,9 +40,6 @@ module RDBB
         print_usage
         exit 1
       end
-
-      dir = File.dirname( __FILE__ )
-      `cat #{dir}/schemata/postgresql.sql | psql -U #{DB_USER} #{DB_DATABASE}`
 
     end
 

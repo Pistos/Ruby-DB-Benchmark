@@ -1,15 +1,25 @@
-require_relative '../models/activerecord/record'
+require 'active_record'
+
+require_relative 'models/record'
 
 module RDBB; module Runner
   class ActiveRecord
     def initialize
       ::ActiveRecord::Base.establish_connection(
         :adapter  => 'postgresql',
-        :host     => 'localhost',
+        # :host     => 'localhost',
         :username => 'rdbb',
         :password => 'rdbb',
-        :database => 'rdbb'
+        :database => 'rdbb_rails'
       )
+
+      ::ActiveRecord::Schema.define do
+        drop_table :records
+
+        create_table :records do |t|
+          t.column :s, :string
+        end
+      end
     end
 
     def insert_simple
