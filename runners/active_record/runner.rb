@@ -14,7 +14,9 @@ module RDBB; module Runner
       )
 
       ::ActiveRecord::Schema.define do
-        drop_table :records
+        if table_exists? :records
+          drop_table :records
+        end
 
         create_table :records do |t|
           t.column :s, :string
