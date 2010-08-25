@@ -30,11 +30,12 @@ module RDBB; module Runner
     end
 
     def prep_select_simple
-      record = Record.new( id: 1, s: 'a string' )
+      record = Record.new( s: 'a string' )
+      record.id = 2
       record.save
     end
     def select_simple
-      Record.find( 1 )
+      Record.find( 2 )
     end
   end
 end; end
