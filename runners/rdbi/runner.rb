@@ -25,5 +25,18 @@ module RDBB; module Runner
     def select_simple
       @st.execute( @id ).fetch
     end
+
+    def prep_select_simple_many
+      @dbh.execute "DELETE FROM records"
+      (1..1000).each do |i|
+        @dbh.execute( "INSERT INTO records ( id, s ) VALUES ( ?, ? )", i, i )
+      end
+      @st = @dbh.prepare( "SELECT * FROM records WHERE id = ?" )
+    end
+    def select_simple_many
+      (1..1000).each do |i|
+        @st.execute( i).fetch
+      end
+    end
   end
 end; end

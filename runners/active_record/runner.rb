@@ -37,5 +37,19 @@ module RDBB; module Runner
     def select_simple
       Record.find( 2 )
     end
+
+    def prep_select_simple_many
+      Record.delete_all
+      (1..1000).each do |i|
+        r = Record.new( s: "#{i}" )
+        r.id = i
+        r.save
+      end
+    end
+    def select_simple_many
+      (1..1000).each do |i|
+        Record.find i
+      end
+    end
   end
 end; end
