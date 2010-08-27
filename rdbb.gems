@@ -1,4 +1,4 @@
-# rdbb.gemset generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+# rdbb.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
 activemodel -v3.0.0.rc
 activerecord -v3.0.0.rc
 activesupport -v3.0.0.rc
@@ -12,5 +12,6 @@ pg -v0.9.0
 rdbi -v0.9.0
 rdbi-driver-postgresql -v0.9.0
 rsruby -v0.5.1.1 -- --with-R-dir=/usr/lib/R
+sequel -v3.14.0
 typelib -v0.0.3
 tzinfo -v0.3.23
