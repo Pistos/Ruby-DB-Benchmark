@@ -39,7 +39,6 @@ module RDBB; module Runner
     end
 
     def prep_select_simple_many
-      Record.delete_all
       (1..1000).each do |i|
         r = Record.new( s: "#{i}" )
         r.id = i

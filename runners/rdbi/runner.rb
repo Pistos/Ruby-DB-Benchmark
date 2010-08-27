@@ -27,7 +27,6 @@ module RDBB; module Runner
     end
 
     def prep_select_simple_many
-      @dbh.execute "DELETE FROM records"
       (1..1000).each do |i|
         @dbh.execute( "INSERT INTO records ( id, s ) VALUES ( ?, ? )", i, i )
       end
