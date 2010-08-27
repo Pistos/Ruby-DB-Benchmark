@@ -51,5 +51,16 @@ module RDBB; module Runner
         Record.find i
       end
     end
+
+    def prep_update_simple
+      record = Record.new( s: 'a string' )
+      record.id = 3
+      record.save
+    end
+    def update_simple
+      r = Record.find( 3 )
+      r.s = Time.now.to_f
+      r.save
+    end
   end
 end; end

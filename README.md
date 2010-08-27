@@ -49,6 +49,7 @@ Coming soon:
 * insert_simple
 * select_simple
 * select_simple_many
+* update_simple
 
 ## Interpretation
 

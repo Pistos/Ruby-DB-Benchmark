@@ -38,5 +38,13 @@ module RDBB; module Runner
         @st.execute( i).fetch
       end
     end
+
+    def prep_update_simple
+      @dbh.execute( "INSERT INTO records ( id, s ) VALUES ( ?, ? )", 3, 'a string' )
+      @st = @dbh.prepare( "SELECT * FROM records WHERE id = ?" )
+    end
+    def update_simple
+      @dbh.execute( "UPDATE records SET s = ? WHERE id = ?", Time.now.to_f, 3 )
+    end
   end
 end; end
