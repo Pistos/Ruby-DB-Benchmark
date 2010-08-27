@@ -49,13 +49,16 @@ module RDBB
         puts "* #{method}"
 
         prep_method = "prep_#{method}".to_sym
+        puts "* Running #{@runner1.class} preparations..."
         if @runner1.respond_to? prep_method
           @runner1.send prep_method
         end
+        puts "* Running #{@runner2.class} preparations..."
         if @runner2.respond_to? prep_method
           @runner2.send prep_method
         end
 
+        puts "* Comparing libs..."
         result = Benchmark.compare_realtime(
           :iterations => @outer_iterations || 10,
           :inner_iterations => @inner_iterations || 1000,
