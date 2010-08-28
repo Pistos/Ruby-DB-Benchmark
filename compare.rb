@@ -2,6 +2,7 @@ require 'better-benchmark'
 
 require_relative 'runners/rdbi/runner'
 require_relative 'runners/active_record/runner'
+require_relative 'runners/sequel/runner'
 
 module RDBB
 
