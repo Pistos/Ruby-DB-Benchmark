@@ -59,10 +59,22 @@ module RDBB
           @runner2.send prep_method
         end
 
+        if @inner_iterations
+          inner_iterations = @inner_iterations
+        else
+          default_inner_iterations = {
+            insert_simple: 1000,
+            select_simple: 1000,
+            select_simple_many: 1,
+            update_simple: 1000,
+          }
+          inner_iterations = default_inner_iterations[ method ] || 1000
+        end
+
         puts "* Comparing libs..."
         result = Benchmark.compare_realtime(
           :iterations => @outer_iterations || 10,
-          :inner_iterations => @inner_iterations || 1000,
+          :inner_iterations => inner_iterations,
           :verbose => true
         ) { |iteration|
           @runner1.send method
